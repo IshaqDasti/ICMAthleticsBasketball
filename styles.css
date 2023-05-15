@@ -29,6 +29,10 @@
     text-align: center;
 }
 
+tbody > tr:hover {
+    background-color: #dfc0cc !important;
+}
+
 .content-table tbody tr:nth-of-type(even) {
     background-color: #f3f3f3;
 }
@@ -90,4 +94,8 @@
       display: block;
       text-align: left;
     }
+  }
+
+  .week {
+    background-color: #dfc0cc;
   }

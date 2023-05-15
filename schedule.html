@@ -20,4 +20,13 @@
         </a>
     </div>
     <img id="logo" src="icomd-logo.png" alt="ICM logo">
+    <script>
+        window.onload = function() {
+            loadCSV("schedule.csv", function(csv) {
+              const data = parseCSV(csv);
+              const table = createSchedule(data);
+              document.body.appendChild(table);
+            });
+        };
+    </script>
 </body>

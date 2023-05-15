@@ -7,21 +7,21 @@ function topnav() {
     }
   }
 
-  function loadCSV(url, callback) {
-    const xhr = new XMLHttpRequest();
-    xhr.open("GET", url);
-    xhr.onload = function() {
-      if (xhr.status === 200) {
-        callback(xhr.responseText);
-      } else {
-        console.error("Error loading CSV file:", xhr.statusText);
-      }
-    };
-    xhr.onerror = function() {
+function loadCSV(url, callback) {
+  const xhr = new XMLHttpRequest();
+  xhr.open("GET", url);
+  xhr.onload = function() {
+    if (xhr.status === 200) {
+      callback(xhr.responseText);
+    } else {
       console.error("Error loading CSV file:", xhr.statusText);
-    };
-    xhr.send();
-  }
+    }
+  };
+  xhr.onerror = function() {
+    console.error("Error loading CSV file:", xhr.statusText);
+  };
+  xhr.send();
+}
 
   // This function will parse the CSV file and return an array of objects
 function parseCSV(csv) {
@@ -70,6 +70,42 @@ function createTable(data) {
         link.textContent = obj[key];
         dataCell.appendChild(link);
         console.log(str);
+      }
+      else dataCell.textContent = obj[key];
+      dataRow.appendChild(dataCell);
+    }
+    body.appendChild(dataRow);
+  }
+  table.append(body)
+  return table;
+}
+
+function createSchedule(data) {
+  const table = document.createElement("table");
+  table.className = "content-table";
+  const head = document.createElement("thead")
+  const headerRow = document.createElement("tr");
+
+  for (const key in data[0]) {
+    const headerCell = document.createElement("th");
+    headerCell.textContent = key;
+    headerRow.appendChild(headerCell);
+  }
+  head.appendChild(headerRow);
+  table.appendChild(head);
+  const body = document.createElement("tbody");
+
+  for (const obj of data) {
+    const dataRow = document.createElement("tr");
+    // Loop through the keys of the object to create the data cells
+    for (const key in obj) {
+      const dataCell = document.createElement("td");
+      if(obj[key].includes("\"")) {
+        dataRow.className = "week";
+        dataCell.textContent = (obj[key] + obj["Away Team"]).substr(1).slice(0, -1);
+        dataCell.setAttribute("colspan", 4)
+        dataRow.appendChild(dataCell);
+        break;
       }
       else dataCell.textContent = obj[key];
       dataRow.appendChild(dataCell);
