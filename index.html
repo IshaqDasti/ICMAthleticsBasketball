@@ -21,33 +21,35 @@
     <img id="logo" src="icomd-logo.png" alt="ICM logo">
     <script>
         // window.onload = function() {loadTables()};
-        window.addEventListener('load', function() {
+        $(document).ready(function () {
             loadCSV("standings.csv", function(csv) {
               const data = parseCSV(csv);
               const table = createTable(data);
               document.body.appendChild(table);
             });
         });
-
-        window.addEventListener('load', function() {
+        $(document).ready(function () {
             loadCSV("schedule.csv", function(csv) {
               const sched = parseCSV(csv);
               const upcomingWeek = createUpcomingWeek(sched);
               document.body.appendChild(upcomingWeek);
             });
         });
-        // function loadTables() {
+        // window.addEventListener('load', function() {
         //     loadCSV("standings.csv", function(csv) {
         //       const data = parseCSV(csv);
         //       const table = createTable(data);
         //       document.body.appendChild(table);
         //     });
+        // });
+
+        // window.addEventListener('load', function() {
         //     loadCSV("schedule.csv", function(csv) {
         //       const sched = parseCSV(csv);
         //       const upcomingWeek = createUpcomingWeek(sched);
         //       document.body.appendChild(upcomingWeek);
         //     });
-        // }
+        // });
     </script>
 </body>
 </html>
