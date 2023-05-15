@@ -19,77 +19,14 @@
         </a>
     </div>
     <img id="logo" src="icomd-logo.png" alt="ICM logo">
-    <table class="content-table">
-        <thead>
-        <tr>
-            <th>Rank</th>
-            <th>Team</th>
-            <th>Wins</th>
-            <th>Losses</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td>1</td>
-            <td><a href="teams/team1.html" class="teamlink">Team 1</a></td>
-            <td>9</td>
-            <td>0</td>
-        </tr>
-        <tr>
-            <td>2</td>
-            <td><a href="teams/team2.html" class="teamlink">Team 2</a></td>
-            <td>8</td>
-            <td>1</td>
-        </tr>
-        <tr>
-            <td>3</td>
-            <td><a href="teams/team3.html" class="teamlink">Team 3</a></td>
-            <td>7</td>
-            <td>2</td>
-        </tr>
-        <tr>
-            <td>4</td>
-            <td><a href="teams/team4.html" class="teamlink">Team 4</a></td>
-            <td>6</td>
-            <td>3</td>
-        </tr>
-        <tr>
-            <td>5</td>
-            <td><a href="teams/team5.html" class="teamlink">Team 5</a></td>
-            <td>5</td>
-            <td>4</td>
-        </tr>
-        <tr>
-            <td>6</td>
-            <td><a href="teams/team6.html" class="teamlink">Team 6</a></td>
-            <td>4</td>
-            <td>5</td>
-        </tr>
-        <tr>
-            <td>7</td>
-            <td><a href="teams/team7.html" class="teamlink">Team 7</a></td>
-            <td>3</td>
-            <td>6</td>
-        </tr>
-        <tr>
-            <td>8</td>
-            <td><a href="teams/team8.html" class="teamlink">Team 8</a></td>
-            <td>2</td>
-            <td>7</td>
-        </tr>
-        <tr>
-            <td>9</td>
-            <td><a href="teams/team9.html" class="teamlink">Team 9</a></td>
-            <td>1</td>
-            <td>8</td>
-        </tr>
-        <tr>
-            <td>10</td>
-            <td><a href="teams/team10.html" class="teamlink">Team 10</a></td>
-            <td>0</td>
-            <td>9</td>
-        </tr>
-        </tbody>
-    </table>
+    <script>
+        window.onload = function() {
+            loadCSV("standings.csv", function(csv) {
+              const data = parseCSV(csv);
+              const table = createTable(data);
+              document.body.appendChild(table);
+            });
+          };
+    </script>
 </body>
 </html>
