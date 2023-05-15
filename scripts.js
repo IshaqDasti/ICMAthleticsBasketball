@@ -102,7 +102,7 @@ function createSchedule(data) {
       const dataCell = document.createElement("td");
       if(obj[key].includes("\"")) {
         dataRow.className = "week";
-        dataCell.textContent = (obj[key] + obj["Away Team"]).substr(1).slice(0, -1);
+        dataCell.textContent = (obj[key] + ", " + obj["Away Team"]).slice(1, -1);
         dataCell.setAttribute("colspan", 4)
         dataRow.appendChild(dataCell);
         break;
@@ -113,5 +113,56 @@ function createSchedule(data) {
     body.appendChild(dataRow);
   }
   table.append(body)
+  return table;
+}
+
+function createUpcomingWeek(data) {
+  const table = document.createElement("table");
+  table.className = "content-table";
+  const head = document.createElement("thead")
+  const headerRow = document.createElement("tr");
+
+  for (const key in data[0]) {
+    const headerCell = document.createElement("th");
+    headerCell.textContent = key;
+    headerRow.appendChild(headerCell);
+  }
+  head.appendChild(headerRow);
+  table.appendChild(head);
+  const body = document.createElement("tbody");
+  var flag = 0;
+  var count = 1;
+  for (const obj of data) {
+    const dataRow = document.createElement("tr");
+    for (const key in obj) {
+      const dataCell = document.createElement("td");
+      if(obj[key].includes("\"")) {
+        dataRow.className = "week";
+        dataCell.textContent = (obj[key] + ", " + obj["Away Team"]).slice(1, -1);
+        const gameDay = new Date(dataCell.textContent);
+        gameDay.setDate(gameDay.getDate() + 1)
+        if(new Date() < gameDay) {
+          flag++;
+          if (flag == 1) {
+            const weekCell = document.createElement("td");
+            weekCell.textContent = "Week " + count.toString();
+            dataRow.appendChild(weekCell);
+          }
+          else if(flag == 2) {
+            break;
+          }
+          dataCell.setAttribute("colspan", 4)
+          dataRow.appendChild(dataCell);
+        }
+        count++;
+        break;
+      }
+      else dataCell.textContent = obj[key];
+      if (flag == 1) dataRow.appendChild(dataCell);
+    }
+    if (flag == 2) break;
+    body.appendChild(dataRow);
+  }
+  table.append(body);
   return table;
 }
