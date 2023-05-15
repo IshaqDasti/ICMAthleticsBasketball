@@ -75,7 +75,6 @@ function createTable(data) {
         link.className = "teamlink";
         link.textContent = obj[key];
         dataCell.appendChild(link);
-        console.log(str);
       }
       else dataCell.textContent = obj[key];
       dataRow.appendChild(dataCell);
