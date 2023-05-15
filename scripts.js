@@ -46,6 +46,12 @@ function createTable(data) {
   table.className = "content-table";
   // Create a header row
   const head = document.createElement("thead")
+  const titleRow = document.createElement("tr");
+  const title = document.createElement("th");
+  title.textContent = "Standings";
+  title.setAttribute("colspan", 5)
+  titleRow.appendChild(title);
+  head.appendChild(titleRow);
   const headerRow = document.createElement("tr");
   // Loop through the keys of the first object to create the header cells
   for (const key in data[0]) {
@@ -83,7 +89,13 @@ function createTable(data) {
 function createSchedule(data) {
   const table = document.createElement("table");
   table.className = "content-table";
-  const head = document.createElement("thead")
+  const head = document.createElement("thead");
+  const titleRow = document.createElement("tr");
+  const title = document.createElement("th");
+  title.textContent = "Schedule";
+  title.setAttribute("colspan", 5)
+  titleRow.appendChild(title);
+  head.appendChild(titleRow);
   const headerRow = document.createElement("tr");
 
   for (const key in data[0]) {
@@ -120,6 +132,12 @@ function createUpcomingWeek(data) {
   const table = document.createElement("table");
   table.className = "content-table";
   const head = document.createElement("thead")
+  const titleRow = document.createElement("tr");
+  const title = document.createElement("th");
+  title.textContent = "Upcoming Week";
+  title.setAttribute("colspan", 5)
+  titleRow.appendChild(title);
+  head.appendChild(titleRow);
   const headerRow = document.createElement("tr");
 
   for (const key in data[0]) {
@@ -151,7 +169,7 @@ function createUpcomingWeek(data) {
           else if(flag == 2) {
             break;
           }
-          dataCell.setAttribute("colspan", 4)
+          dataCell.setAttribute("colspan", 4);
           dataRow.appendChild(dataCell);
         }
         count++;

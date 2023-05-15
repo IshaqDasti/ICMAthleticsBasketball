@@ -1,10 +1,12 @@
 #logo {
     width: 100px;
-    height: 100px
+    height: 100px;
+    display: block;
 }
 .content-table {
+    display: inline-flexbox;
     border-collapse: collapse;
-    margin: 25px 0;
+    margin: 25px;
     font-size: 0.9em;
     min-width: 400px;
     border-radius: 5px 5px 0 0;
