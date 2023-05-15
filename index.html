@@ -20,20 +20,30 @@
     </div>
     <img id="logo" src="icomd-logo.png" alt="ICM logo">
     <script>
-        window.onload = function() {loadTables()};
-
-        function loadTables() {
-            loadCSV("standings.csv", function(csv) {
+        // window.onload = function() {loadTables()};
+        window.addEventListener('load', loadCSV("standings.csv", function(csv) {
               const data = parseCSV(csv);
               const table = createTable(data);
               document.body.appendChild(table);
-            });
-            loadCSV("schedule.csv", function(csv) {
+            }));
+
+        window.addEventListener('load', loadCSV("schedule.csv", function(csv) {
               const sched = parseCSV(csv);
               const upcomingWeek = createUpcomingWeek(sched);
               document.body.appendChild(upcomingWeek);
-            });
-        }
+            }));
+        // function loadTables() {
+        //     loadCSV("standings.csv", function(csv) {
+        //       const data = parseCSV(csv);
+        //       const table = createTable(data);
+        //       document.body.appendChild(table);
+        //     });
+        //     loadCSV("schedule.csv", function(csv) {
+        //       const sched = parseCSV(csv);
+        //       const upcomingWeek = createUpcomingWeek(sched);
+        //       document.body.appendChild(upcomingWeek);
+        //     });
+        // }
     </script>
 </body>
 </html>
