@@ -26,11 +26,11 @@
               const table = createTable(data);
               document.body.appendChild(table);
             });
-            loadCSV("schedule.csv", function(csv) {
+            setTimeout(() => {loadCSV("schedule.csv", function(csv) {
               const sched = parseCSV(csv);
               const upcomingWeek = createUpcomingWeek(sched);
               document.body.appendChild(upcomingWeek);
-            });
+            })}, 10);
         };
     </script>
 </body>
