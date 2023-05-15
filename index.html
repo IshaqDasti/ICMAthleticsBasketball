@@ -3,84 +3,93 @@
 <head>
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" href="icomd-favicon.ico?">
+  <script src="scripts.js"></script>
+  <script src="https://kit.fontawesome.com/656318a911.js" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
   <title>ICM Athletics</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-
-<img id="logo" src="icomd-logo.png" alt="ICM logo">
-<table class="content-table">
-    <thead>
-      <tr>
-        <th>Rank</th>
-        <th>Team</th>
-        <th>Wins</th>
-        <th>Losses</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>1</td>
-        <td><a href="team1.html">Team 1</a></td>
-        <td>9</td>
-        <td>0</td>
-      </tr>
-      <tr>
-        <td>2</td>
-        <td>Team 2</td>
-        <td>8</td>
-        <td>1</td>
-      </tr>
-      <tr>
-        <td>3</td>
-        <td>Team 3</td>
-        <td>7</td>
-        <td>2</td>
-      </tr>
-      <tr>
-        <td>4</td>
-        <td>Team 4</td>
-        <td>6</td>
-        <td>3</td>
-      </tr>
-      <tr>
-        <td>5</td>
-        <td>Team 5</td>
-        <td>5</td>
-        <td>4</td>
-      </tr>
-      <tr>
-        <td>6</td>
-        <td>Team 6</td>
-        <td>4</td>
-        <td>5</td>
-      </tr>
-      <tr>
-        <td>7</td>
-        <td>Team 7</td>
-        <td>3</td>
-        <td>6</td>
-      </tr>
-      <tr>
-        <td>8</td>
-        <td>Team 8</td>
-        <td>2</td>
-        <td>7</td>
-      </tr>
-      <tr>
-        <td>9</td>
-        <td>Team 9</td>
-        <td>1</td>
-        <td>8</td>
-      </tr>
-      <tr>
-        <td>10</td>
-        <td>Team 10</td>
-        <td>0</td>
-        <td>9</td>
-      </tr>
-    </tbody>
-  </table>
-
+    <div class="topnav" id="myTopnav">
+        <a class="active" href="#">Home</a>
+        <a href="schedule.html">Schedule</a>
+        <a href="contact.html">Contact</a>
+        <a href="javascript:void(0);" class="icon" onclick="topnav()">
+            <i class="fa fa-bars"></i>
+        </a>
+    </div>
+    <img id="logo" src="icomd-logo.png" alt="ICM logo">
+    <table class="content-table">
+        <thead>
+        <tr>
+            <th>Rank</th>
+            <th>Team</th>
+            <th>Wins</th>
+            <th>Losses</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>1</td>
+            <td><a href="teams/team1.html" class="teamlink">Team 1</a></td>
+            <td>9</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td><a href="teams/team2.html" class="teamlink">Team 2</a></td>
+            <td>8</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td><a href="teams/team3.html" class="teamlink">Team 3</a></td>
+            <td>7</td>
+            <td>2</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td><a href="teams/team4.html" class="teamlink">Team 4</a></td>
+            <td>6</td>
+            <td>3</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td><a href="teams/team5.html" class="teamlink">Team 5</a></td>
+            <td>5</td>
+            <td>4</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td><a href="teams/team6.html" class="teamlink">Team 6</a></td>
+            <td>4</td>
+            <td>5</td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td><a href="teams/team7.html" class="teamlink">Team 7</a></td>
+            <td>3</td>
+            <td>6</td>
+        </tr>
+        <tr>
+            <td>8</td>
+            <td><a href="teams/team8.html" class="teamlink">Team 8</a></td>
+            <td>2</td>
+            <td>7</td>
+        </tr>
+        <tr>
+            <td>9</td>
+            <td><a href="teams/team9.html" class="teamlink">Team 9</a></td>
+            <td>1</td>
+            <td>8</td>
+        </tr>
+        <tr>
+            <td>10</td>
+            <td><a href="teams/team10.html" class="teamlink">Team 10</a></td>
+            <td>0</td>
+            <td>9</td>
+        </tr>
+        </tbody>
+    </table>
 </body>
 </html>
