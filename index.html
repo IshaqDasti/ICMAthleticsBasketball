@@ -26,12 +26,12 @@
               const table = createTable(data);
               document.body.appendChild(table);
             });
-            addLoadEvent(loadCSV("schedule.csv", function(csv) {
+        };
+        addLoadEvent(loadCSV("schedule.csv", function(csv) {
               const sched = parseCSV(csv);
               const upcomingWeek = createUpcomingWeek(sched);
               document.body.appendChild(upcomingWeek);
             }));
-        };
     </script>
 </body>
 </html>
