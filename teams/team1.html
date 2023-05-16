@@ -83,5 +83,15 @@
     </tbody>
   </table>
 
+  <script>
+    $(document).ready(function () {
+      loadCSV("../schedule.csv", function(csv) {
+        const data = parseCSV(csv);
+        const table = createTeamSchedule(data, "Team 1");
+        document.body.appendChild(table);
+      });
+    });
+  </script>
+
 </body>
 </html>

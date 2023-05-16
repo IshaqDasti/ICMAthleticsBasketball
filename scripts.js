@@ -183,3 +183,53 @@ function createUpcomingWeek(data) {
   table.append(body);
   return table;
 }
+
+function createTeamSchedule(data, team) {
+  const table = document.createElement("table");
+  table.className = "content-table";
+  const head = document.createElement("thead")
+  const titleRow = document.createElement("tr");
+  const title = document.createElement("th");
+  title.textContent = "Team Schedule";
+  title.setAttribute("colspan", 6)
+  titleRow.appendChild(title);
+  head.appendChild(titleRow);
+  const headerRow = document.createElement("tr");
+  const dateHeader = document.createElement("th");
+  dateHeader.textContent = "Date";
+  headerRow.appendChild(dateHeader);
+  for (const key in data[0]) {
+    const headerCell = document.createElement("th");
+    headerCell.textContent = key;
+    headerRow.appendChild(headerCell);
+  }
+  head.appendChild(headerRow);
+  table.appendChild(head);
+  const body = document.createElement("tbody");
+
+  for (let i = 0; i < data.length; i = i+6) {
+    console.log(data[i + 1]);
+    const dataRow = document.createElement("tr");
+    const weekCell = document.createElement("td");
+    const dateCell = document.createElement("td");
+    dateCell.textContent = (data[i]["Home Team"] + ", " + data[i]["Away Team"]).slice(1, -1);
+    dataRow.appendChild(dateCell);
+    weekCell.textContent = data[i]["Week"];
+    dataRow.appendChild(weekCell);
+    for (let j = i+1; j < i+6; j++) {
+      if(Object.values(data[j]).includes(team)) {
+        for (const key in data[j]) {
+          if(key === "Week") continue;
+          const dataCell = document.createElement("td");
+          dataCell.textContent = data[j][key];
+          dataRow.appendChild(dataCell);
+        }
+
+    body.appendChild(dataRow);
+      }
+      else continue;
+    }
+  }
+  table.append(body)
+  return table;
+}
