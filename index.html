@@ -26,14 +26,19 @@
               const table = createTable(data);
               document.body.appendChild(table);
             });
-        });
-        $(document).ready(function () {
             loadCSV("schedule.csv", function(csv) {
               const sched = parseCSV(csv);
               const upcomingWeek = createUpcomingWeek(sched);
               document.body.appendChild(upcomingWeek);
             });
         });
+        // $(document).ready(function () {
+        //     loadCSV("schedule.csv", function(csv) {
+        //       const sched = parseCSV(csv);
+        //       const upcomingWeek = createUpcomingWeek(sched);
+        //       document.body.appendChild(upcomingWeek);
+        //     });
+        // });
     </script>
 </body>
 </html>
